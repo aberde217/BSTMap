@@ -1,3 +1,8 @@
+package bstmap;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.HashSet;
+
 public class BSTMap<K extends Comparable, V> implements Map61B {
 
     private class BSTNode {
@@ -12,7 +17,10 @@ public class BSTMap<K extends Comparable, V> implements Map61B {
 
     private int size;
     private BSTNode root;
-    public BSTMap() {}
+    private Set<K> keySet;
+    public BSTMap() {
+        keySet = new HashSet<>();
+    }
 
     @Override
     public void clear() {
@@ -64,32 +72,32 @@ public class BSTMap<K extends Comparable, V> implements Map61B {
             T.left = put(key, value, T.left);
         return T;
     }
+
     @Override
     public void put(Object key, Object value) {
         root = put((K) key, (V) value, root);
         size += 1;
+        keySet.add((K)key);
     }
 
     @Override
     public Set keySet() {
-        return null;
+        return keySet;
     }
 
     @Override
     public V remove(Object key) {
-        return null;
+        throw new UnsupportedOperationException("Action not supported");
     }
 
     @Override
     public V remove(Object key, Object value) {
-        return null;
+        throw new UnsupportedOperationException("Action not supported");
     }
 
 
     @Override
     public Iterator iterator() {
-        throw new UnsupportedOperationException("Action not supported");
+        throw new UnsupportedOperationException("Action not supported yet");
     }
-    
-}
 
