@@ -88,7 +88,7 @@ public class BSTMap<K extends Comparable, V> implements Map61B {
 
     @Override
     public Iterator iterator() {
-        return null;
+        throw new UnsupportedOperationException("Action not supported");
     }
     
 }
